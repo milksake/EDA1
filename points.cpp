@@ -49,24 +49,24 @@ std::vector<double> calculateDist(const std::vector<std::vector<double>>& points
 
 int main()
 {
-    int dims[5] = {10, 50, 100, 500, 1000};
-    std::vector<double> dists[5];
-    for (int i = 0; i < 5; i++)
+    int dims[7] = {10, 50, 100, 500, 1000, 2000, 5000};
+    std::vector<double> dists[7];
+    for (int i = 0; i < 7; i++)
     {
         auto p = genPoints(dims[i]);
         dists[i] = calculateDist(p);
         std::cout << i  << ' ' << dims[i] << ' ' << p.size() << ' ' << dists[i].size() << '\n';
     }
     std::ofstream f("distances.csv");
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 6; i++)
     {
         f << dims[i] << ',';
     }
-    f << dims[4] << '\n';
+    f << dims[6] << '\n';
     for (int j = 0; j < dists[0].size(); j++)
     {   
         int i = 0;
-        for (; i < 4; i++)
+        for (; i < 6; i++)
         {
             f << dists[i][j] << ',';
         }
